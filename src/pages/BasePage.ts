@@ -41,12 +41,12 @@ export class BasePage {
     }
 
     async isCartButtonVisible(): Promise<boolean> {
-        await this.cartButton.waitFor({ state: 'visible' });
-        return await this.cartButton.isVisible();
+        await this.cartButton.first().waitFor({ state: 'visible' });
+        return await this.cartButton.first().isVisible();
     }
 
     async getPageFootersCount(): Promise<number> {
-        await this.footerLinks.waitFor({ state: 'visible' });
+        await this.footerLinks.first().waitFor({ state: 'visible' });
         return await this.footerLinks.count();
     }
 
