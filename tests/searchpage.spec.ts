@@ -20,10 +20,10 @@ for (let row of productData) {
 }
 
 for (let row of productData) {
-    test(`@smoke verify user is able to land on the product page - ${row.searchkey} - ${row.productname}`, async ({ homePage, searchResultsPage, page }) => {
+    test(`@smoke verify user is able to land on the product page - ${row.searchkey} - ${row.productname}`, async ({ homePage, searchResultsPage, productInfoPage }) => {
         await homePage.doSearch(row.searchkey);
         await searchResultsPage.selectProduct(row.productname);
-        expect(await page.title()).toBe(row.productname);
+        expect(await productInfoPage.getProductHeader()).toBe(row.productname);
     });
 }
 
