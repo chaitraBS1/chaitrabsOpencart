@@ -55,7 +55,7 @@ test('@regression user is able to login to app with valid credentials', async ({
 
 
 //DD_0: using test data from fixtures: sequence run
-test(`@regression login to app with invalid credentials with fixture data`, async ({ loginPage, testData }) => {
+test(`login to app with invalid credentials with fixture data`, async ({ loginPage, testData }) => {
     for (let row of testData) {
         await loginPage.doLogin(row.username, row.password);
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
@@ -85,7 +85,7 @@ for (let row of testCSVData) {
 //DD_2: read xlsx data directly fromn the excel file and loop the test method row wise...
 let testExcelData = ExcelHelper.readExcel('src/testdata/opencarttestdata.xlsx', 'login');
 for (let row of testExcelData) {
-    test(`@regression login to app with invalid credentials with Excel Data- ${row.username} - ${row.password}`, async ({ loginPage, homePage }) => {
+    test(`login to app with invalid credentials with Excel Data - ${row.username} - ${row.password} `, async ({ loginPage, homePage }) => {
         meta({ priority: 'P2', severity: 'major', owner: 'Ajit', story: 'US103', epic: 'ep301', feature: 'F32', issue: 'bug36' });
         await testData(testExcelData, 'Invalid Login Data');
 
@@ -99,7 +99,7 @@ for (let row of testExcelData) {
 //DD_3: read JSON data directly fromn the JSON file and loop the test method row wise...
 let testJSONData = JsonHelper.readJson('src/testdata/logindata.json');
 for (let row of testJSONData) {
-    test(`@regression login to app with invalid credentials with JSON Data- ${row.username} - ${row.password}`, async ({ loginPage, homePage }) => {
+    test(`login to app with invalid credentials with JSON Data - ${row.username} - ${row.password} `, async ({ loginPage, homePage }) => {
         meta({ priority: 'P2', severity: 'major', owner: 'Ajit', story: 'US103', epic: 'ep301', feature: 'F32', issue: 'bug36' });
         await testData(testJSONData, 'Invalid Login Data');
 
