@@ -29,10 +29,10 @@ export class LoginPage extends BasePage {
         return await this.forgottenPasswordLink.isVisible();
     }
 
-    async doLogin(username: string, password: string): Promise<void> {
-        console.log(`app user creds: ${username} - ${password}`);
-        await this.emailId.fill(username);
-        await this.password.fill(password);
+    async doLogin(app_username: string, app_password: string): Promise<void> {
+        console.log(`app user creds: ${app_username} - ${app_password}`);
+        await this.emailId.fill(app_username);
+        await this.password.fill(app_password);
         await this.loginBtn.click();
     }
 
